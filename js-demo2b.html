@@ -15,7 +15,7 @@
         $('table').append('<caption></caption>');
         $.getJSON('data.json', function(jqdata) {
             $('caption').append(jqdata.title);    
-        });
+        });  
         
         //Add a table head
         $('table').append('<thead></thead>');
@@ -33,6 +33,35 @@
 
         // }
 
+        //Add tbody to table
+        $('table').append('<tbody></tbody>');
+
+        //Add tr with id="showcalories" to tbody
+        $('tbody').append('<tr id="showcalories"></tr>');
+        
+        //Populate 5 td within #showheading row
+        for(let i = 1; i <= 5; i++) {
+            $('#showcalories').append('<td></td>');
+        }
+
+        //Add with id="showfat" to tbody
+        $('tbody').append('<tr id="showfat"></tr>');
+
+        //Populate 5 td within #showheading row
+        for(let i = 1; i <= 5; i++) {
+            $('#showfat').append('<td></td>');
+        }
+
+        //Add tfoot to table
+        $('table').append('<tfoot></tfoot>');
+
+        //Add tr with id="showcalories" to tfoot
+        $('tfoot').append('<tr id="showven"></tr>');
+
+        //Populate 5 td within #showheading row
+        for(let i = 1; i <= 5; i++) {
+            $('#showven').append('<td></td>');
+        }
        });
     });
  </script>
