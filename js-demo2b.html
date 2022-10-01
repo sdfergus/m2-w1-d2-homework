@@ -11,6 +11,27 @@
     $(document).ready(function() {
        $("#btn").click(function(event){
         
+        //Add a caption within the table 
+        $('table').append('<caption></caption>');
+        $.getJSON('data.json', function(jqdata) {
+            $('caption').append(jqdata.title);    
+        });
+        
+        //Add a table head
+        $('table').append('<thead></thead>');
+
+        //Add a row in the table head
+        $('thead').append('<tr id="showheading"></tr>');
+
+        //Populate 5 th within #showheading row
+        for(let i = 1; i <= 5; i++) {
+            $('#showheading').append('<th></th>');
+        }
+
+        // //Load data from json file to each th
+        // for(let i = 0; i < $('#showheading').children().length; i++){
+
+        // }
 
        });
     });
