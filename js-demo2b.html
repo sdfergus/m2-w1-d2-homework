@@ -1,91 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>  
-<title>My Second Web Page</title>
+  <head>
+    <title>My Second Web Page</title>
 
-<link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="demo.css" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-       $("#btn").click(function(event){
-        
-        //Add a caption within the table 
-        $('table').append('<caption></caption>');
-        $.getJSON('data.json', function(jqdata) {
-            $('caption').append(jqdata.title);    
-        });  
-        
-        //Add a table head
-        $('table').append('<thead></thead>');
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function (event) {
+          //Add a caption within the table
+          $("table").append("<caption></caption>");
+          $.getJSON("data.json", function (jqdata) {
+            $("caption").append(jqdata.title);
+          });
 
-        //Add a row in the table head
-        $('thead').append('<tr id="showheading"></tr>');
+          //Add a table head
+          $("table").append("<thead></thead>");
+          //Add a row in the table head
+          $("thead").append('<tr id="showheading"></tr>');
+          // Populate 5 th within #showheading row
+          $.getJSON("data.json", function (jqdata) {
+            $("#showheading").append("<th>" + jqdata.heading + "</th>");
+            $("#showheading").append("<th>" + jqdata.head1 + "</th>");
+            $("#showheading").append("<th>" + jqdata.head2 + "</th>");
+            $("#showheading").append("<th>" + jqdata.head3 + "</th>");
+            $("#showheading").append("<th>" + jqdata.head4 + "</th>");
+          });
 
-        //Populate 5 th within #showheading row
-        for(let i = 1; i <= 5; i++) {
-            $('#showheading').append('<th></th>');
-        }
+          //Add tbody to table
+          $("table").append("<tbody></tbody>");
+          //Add tr with id="showcalories" to tbody
+          $("tbody").append('<tr id="showcalories"></tr>');
+          //Populate 5 td within #showcalories row with contents
+          $.getJSON("data.json", function (jqdata) {
+            $("#showcalories").append("<td>" + jqdata.subheadcal + "</td>");
+            $("#showcalories").append("<td>" + jqdata.cal1 + "</td>");
+            $("#showcalories").append("<td>" + jqdata.cal2 + "</td>");
+            $("#showcalories").append("<td>" + jqdata.cal3 + "</td>");
+            $("#showcalories").append("<td>" + jqdata.cal4 + "</td>");
+          });
 
-        // //Load data from json file to each th
-        // for(let i = 0; i < $('#showheading').children().length; i++){
+          //Add with id="showfat" to tbody
+          $("tbody").append('<tr id="showfat"></tr>');
+          //Populate 5 td within #showfat row with contents
+          $.getJSON("data.json", function (jqdata) {
+            $("#showfat").append("<td>" + jqdata.subheadfat + "</td>");
+            $("#showfat").append("<td>" + jqdata.fat1 + "</td>");
+            $("#showfat").append("<td>" + jqdata.fat2 + "</td>");
+            $("#showfat").append("<td>" + jqdata.fat3 + "</td>");
+            $("#showfat").append("<td>" + jqdata.fat4 + "</td>");
+          });
 
-        // }
+          //Add tfoot to table
+          $("table").append("<tfoot></tfoot>");
+          //Add tr with id="showcalories" to tfoot
+          $("tfoot").append('<tr id="showven"></tr>');
+          //Populate 5 td within #showven row with contents
+          $.getJSON("data.json", function (jqdata) {
+            $("#showven").append("<td>" + jqdata.subheadven + "</td>");
+            $("#showven").append("<td>" + jqdata.ven1 + "</td>");
+            $("#showven").append("<td>" + jqdata.ven2 + "</td>");
+            $("#showven").append("<td>" + jqdata.ven3 + "</td>");
+            $("#showven").append("<td>" + jqdata.ven4 + "</td>");
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>My Web Site Brand</header>
+      <nav>
+        <ul>
+          <li><a href="js-demo2.html">Home</a></li>
+          <li><a href="js-demo2b.html">About</a></li>
+          <li><a href="js-demo2d.html">Gallery</a></li>
+          <li><a href="js-demo2c.html">Contact</a></li>
+        </ul>
+      </nav>
 
-        //Add tbody to table
-        $('table').append('<tbody></tbody>');
+      <main>
+        <h1>My Second Heading</h1>
+        <p>My Second paragraph.</p>
 
-        //Add tr with id="showcalories" to tbody
-        $('tbody').append('<tr id="showcalories"></tr>');
-        
-        //Populate 5 td within #showheading row
-        for(let i = 1; i <= 5; i++) {
-            $('#showcalories').append('<td></td>');
-        }
-
-        //Add with id="showfat" to tbody
-        $('tbody').append('<tr id="showfat"></tr>');
-
-        //Populate 5 td within #showheading row
-        for(let i = 1; i <= 5; i++) {
-            $('#showfat').append('<td></td>');
-        }
-
-        //Add tfoot to table
-        $('table').append('<tfoot></tfoot>');
-
-        //Add tr with id="showcalories" to tfoot
-        $('tfoot').append('<tr id="showven"></tr>');
-
-        //Populate 5 td within #showheading row
-        for(let i = 1; i <= 5; i++) {
-            $('#showven').append('<td></td>');
-        }
-       });
-    });
- </script>
-</head> 	
-<body>
-
-<div id="container">
-
-<header>My Web Site Brand</header>
-<nav>
-	<ul>
-    <li><a href="js-demo2.html">Home</a></li>
-    <li><a href="js-demo2b.html">About</a></li>
-    <li><a href="js-demo2d.html">Gallery</a></li>
-    <li><a href="js-demo2c.html">Contact</a></li>
-	</ul>
-</nav>
-
-<main>
-  <h1>My Second Heading</h1>
-  <p>My Second paragraph.</p>
-
-  <table>
-    <!--<caption></caption>
+        <table>
+          <!--<caption></caption>
     <thead>
         <tr id="showheading">
             <th></th>
@@ -98,14 +99,14 @@
     <tbody>
         <tr id="showcalories">
             <td></td>
-            <td></td> 
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr id="showfat">
             <td></td>
-            <td></td> 
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -120,14 +121,17 @@
             <td></td>
         </tr>
     </tfoot>-->
-    </table>
+        </table>
 
-    <input type = "button" id = "btn" value = "Load Data" style="margin-top:20px;" />
-</main>
+        <input
+          type="button"
+          id="btn"
+          value="Load Data"
+          style="margin-top: 20px"
+        />
+      </main>
 
-<footer>&copy; Copyright 2020</footer>
-
-</div>
-
-</body>
+      <footer>&copy; Copyright 2020</footer>
+    </div>
+  </body>
 </html>
